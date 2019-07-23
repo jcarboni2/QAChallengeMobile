@@ -17,7 +17,7 @@ This project needs to be executed on a local machine for testing purposes
 
 ## Clone this project
 
-$ git clone https://github.com/jcarboni2/CursoAppium.git
+$ git clone https://github.com/jcarboni2/QAChallengeCabify.git
 
 ### Pré Requisites:
 
