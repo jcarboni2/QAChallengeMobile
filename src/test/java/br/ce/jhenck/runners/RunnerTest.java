@@ -4,9 +4,9 @@ import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
 import br.ce.jhenck.core.DriverFactory;
-import cucumber.api.CucumberOptions;
-import cucumber.api.SnippetType;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(

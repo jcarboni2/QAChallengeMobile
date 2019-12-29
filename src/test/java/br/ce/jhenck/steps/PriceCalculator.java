@@ -8,11 +8,11 @@ import br.ce.jhenck.screens.android.CaptchaScreen;
 import br.ce.jhenck.screens.android.JourneyScreen;
 import br.ce.jhenck.screens.android.LoginScreen;
 import br.ce.jhenck.screens.android.PastJourneysScreen;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class PriceCalculator {
 
