@@ -1,5 +1,4 @@
 #language: en
-
 Feature: Price calculator
   As a Cabify user app
   I want to estimate the price of the journeys with vehicle types
@@ -73,7 +72,7 @@ Feature: Price calculator
 
     Examples: 
       | captcha | message                |
-      | 000 		| Captcha typed is wrong |
+      | 000 	| Captcha typed is wrong |
       | @$%     | Captcha typed is wrong |
       |         | Captcha typed is wrong |
 
