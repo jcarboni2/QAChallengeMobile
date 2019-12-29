@@ -1,4 +1,5 @@
 #language: en
+
 Feature: Price calculator
   As a Cabify user app
   I want to estimate the price of the journeys with vehicle types

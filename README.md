@@ -21,4 +21,4 @@ $ git clone https://github.com/jcarboni2/QAChallengeCabify.git
 
 ### Pré Requisites:
 
-$ Before starts this test, it has been necessary to have the Appium Server version 1.13.0, an IDE installed (e.g. Eclipse), the JDK version 1.8.X and import all depencies of pom.xml file.
+$ Before starts this test, it has been necessary to have the Appium Server version 1.15.1, an IDE installed (e.g. Eclipse), the JDK version 1.8.X and import all depencies of pom.xml file.
