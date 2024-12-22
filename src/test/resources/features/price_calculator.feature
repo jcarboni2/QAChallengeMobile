@@ -1,11 +1,13 @@
 #language: en
+
 Feature: Price calculator
   As a Cabify user app
   I want to estimate the price of the journeys with vehicle types
   To get the journey value before order car
 
-  Background: Login on App
-    Given user is logged in app with "user@qabify.com" and "1234Abc"
+  Background: Log in the app and capture captcha value
+    Given user is logged in app with valid credentials
+    And user get the captcha value
 
   @noOrderCarButton @regression
   Scenario: Validate whether the order car button is not presented before the first journey estimative
@@ -37,16 +39,16 @@ Feature: Price calculator
     And taps on estimate button
     Then estimated price should be "<price>"
 
-    Examples: 
-      | origin                        | destination                   | type      | price   |
-      | Atocha                        | Aeropuerto Madrid Barajas, T4 | Lite      | 35.2 €  |
-      | Atocha                        | Aeropuerto Madrid Barajas, T4 | Executive | 38.72 € |
-      | Aeropuerto Madrid Barajas, T4 | Calle Pradillo, 42            | Lite      | 15.6 €  |
-      | Aeropuerto Madrid Barajas, T4 | Calle Pradillo, 42            | Executive | 17.16 € |
-      | Calle Pradillo, 42            | Calle Mejía Lequerica, 14     | Lite      | 12.35 € |
-      | Calle Pradillo, 42            | Calle Mejía Lequerica, 14     | Executive | 13.59 € |
-      | Calle Mejía Lequerica, 14     | Atocha                        | Lite      | 12.0 €  |
-      | Calle Mejía Lequerica, 14     | Atocha                        | Executive | 13.2 €  |
+    Examples:
+      | origin                        | destination                   | type      | price    |
+      | Atocha                        | Aeropuerto Madrid Barajas, T4 | Lite      | 35.2 €   |
+      | Atocha                        | Aeropuerto Madrid Barajas, T4 | Executive | 38.72 €  |
+      | Aeropuerto Madrid Barajas, T4 | Calle Pradillo, 42            | Lite      | 15.6 €   |
+      | Aeropuerto Madrid Barajas, T4 | Calle Pradillo, 42            | Executive | 17.16 €  |
+      | Calle Pradillo, 42            | Calle Mejía Lequerica, 14     | Lite      | 12.35 €  |
+      | Calle Pradillo, 42            | Calle Mejía Lequerica, 14     | Executive | 13.585 € |
+      | Calle Mejía Lequerica, 14     | Atocha                        | Lite      | 12.0 €   |
+      | Calle Mejía Lequerica, 14     | Atocha                        | Executive | 13.2 €   |
 
   @pastJourneys @regression
   Scenario Outline: Validate whether view past presented has the same estimated price

@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'com.jhenck'
+version '0.0.1-SNAPSHOT'
+
+ext {
+    set('cucumberVersion', '7.20.0')
+    set('appiumJavaClientVersion', '9.3.0')
+    set('junitJupiterVersion', '5.11.3')
+    set('junitPlatformVersion', '1.11.3')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+    testImplementation "org.junit.platform:junit-platform-suite:${junitPlatformVersion}"
+    testImplementation "io.appium:java-client:${appiumJavaClientVersion}"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+test {
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED"
+    }
+}
