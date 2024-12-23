@@ -8,6 +8,7 @@ public class LoginScreen extends BaseScreen {
 	private static final By username = AppiumBy.id("user_name_edit_text");
 	private static final By password = AppiumBy.id("password_edit_text");
 	private static final By loginButton = AppiumBy.id("login_button");
+	private static final By message = AppiumBy.id("android:id/message");
 
 	public void fillUserPassword(String _user, String _pwd) {
 		typeElementBy(username, _user);
@@ -16,5 +17,9 @@ public class LoginScreen extends BaseScreen {
 
 	public void tapLoginButton() throws Exception {
 		clickElementBy(loginButton);
+	}
+
+	public String getInvalidCredentiasMessage() throws Exception {
+		return getElementTextBy(message);
 	}
 }

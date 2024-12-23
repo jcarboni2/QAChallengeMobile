@@ -6,8 +6,10 @@ Feature: Price calculator
   To get the journey value before order car
 
   Background: Log in the app and capture captcha value
-    Given user is logged in app with valid credentials
-    And user get the captcha value
+    Given user fill the credentials app
+    And user log in app
+    And user gets captcha value
+    And user tap on the next button
 
   @noOrderCarButton @regression
   Scenario: Validate whether the order car button is not presented before the first journey estimative
@@ -63,7 +65,7 @@ Feature: Price calculator
       | origin | destination        | type |
       | Atocha | Calle Pradillo, 42 | Lite |
 
-  @invalidCaptchas @regression
+  @invalidCaptchas @regression1
   Scenario Outline: Validate the invalid captchas return error message
     And selects from "Atocha" to "Calle Pradillo, 42"
     And selects the option "Lite" car

@@ -9,22 +9,30 @@ import io.cucumber.java.en.Given;
 
 public class CommonSteps {
 
-    private final LoginScreen login = new LoginScreen();
-    private final CaptchaScreen captcha = new CaptchaScreen();
+    private final LoginScreen loginScreen = new LoginScreen();
+    private final CaptchaScreen captchaScreen = new CaptchaScreen();
     public static String captchaValue;
     private final JourneyScreen journey = new JourneyScreen();
 
-    @Given("user is logged in app with valid credentials")
-    public void userIsLoggedInAppWithAnd() throws Throwable {
+    @Given("user fill the credentials app")
+    public void userFillCredentialsApp() throws Throwable {
         String usr = HandleProperties.getProperty("user");
         String pwd = HandleProperties.getProperty("password");
-        login.fillUserPassword(usr, pwd);
-        login.tapLoginButton();
+        loginScreen.fillUserPassword(usr, pwd);
     }
 
-    @And("user get the captcha value")
+    @And("user log in app")
+    public void userLogInApp() throws Throwable {
+        loginScreen.tapLoginButton();
+    }
+
+    @And("user gets captcha value")
     public void getCaptchaValue() throws Throwable {
-        captchaValue = captcha.getCaptchaText();
-        captcha.tapNextButton();
+        captchaValue = captchaScreen.getCaptchaText();
+    }
+
+    @And("user tap on the next button")
+    public void tapOnTheNextButton() throws Throwable {
+        captchaScreen.tapNextButton();
     }
 }
