@@ -1,11 +1,11 @@
 package com.jhenck.screens.android;
 
-import org.openqa.selenium.By;
-
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.By;
 
 public class JourneyScreen extends BaseScreen {
 
+	private static final By titletext = AppiumBy.xpath("//android.widget.TextView[@text=\"Choose your journey settings\"]");
 	private static final By originField = AppiumBy.id("pick_up_point");
 	private static final By destinationField = By.id("drop_off_point");
 	private static final By liteType = AppiumBy.id("liteCheckBox");
@@ -16,9 +16,9 @@ public class JourneyScreen extends BaseScreen {
 	private static final By requestCarButton = AppiumBy.id("request_button");
 	private static final By alertMessage = By.id("android:id/message");
 
-	public void selectPickUpPointOption(String _origin) {
-		selectComboText(originField, _origin);
-	}
+	public Boolean existsJourneysTitle() { return existsElementTextBy(titletext);}
+
+	public void selectPickUpPointOption(String _origin) {selectComboText(originField, _origin);}
 
 	public void selectDropOffPointOption(String _destination) {
 		selectComboText(destinationField, _destination);
@@ -68,7 +68,5 @@ public class JourneyScreen extends BaseScreen {
 		return getElementTextBy(alertMessage);
 	}
 
-	public void clickOutOfAlert() {
-		tap(250, 1400);
-	}
+	public void getOutOfAlert() {pressEscKey();}
 }

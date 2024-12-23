@@ -4,17 +4,19 @@ import static com.jhenck.core.DriverFactory.getDriver;
 
 import java.util.List;
 
-import io.appium.java_client.PerformsTouchActions;
 import org.openqa.selenium.By;
-
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class BaseScreen {
 
 	public void typeElementBy(By _attribute, String _text) {
 		getDriver().findElement(_attribute).sendKeys(_text);
+	}
+
+	public Boolean existsElementTextBy(By _attribute) {
+		return getDriver().findElement(_attribute).isDisplayed();
 	}
 
 	public String getElementTextBy(By _attribute) {
@@ -40,10 +42,11 @@ public class BaseScreen {
 
 	public boolean exhibitionElementBy(By _attribute) {
 		List<WebElement> element = getDriver().findElements(_attribute);
-		return element.size() > 0;
+		return !element.isEmpty();
 	}
 
-	public void tap(int _x, int _y) {
-		new TouchAction<>((PerformsTouchActions) getDriver()).tap(PointOption.point(_x, _y)).perform();
+	public void pressEscKey() {
+		Actions actions = new Actions(getDriver());
+		actions.sendKeys(Keys.ESCAPE).perform();
 	}
 }
